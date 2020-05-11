@@ -1,0 +1,8 @@
+# Cloudci pipeline specific configuration
+general:
+  jenkinsKubernetes:
+    jnlpAgent: 'ppiper/jenkins-agent-k8s:v8'
+
+steps:
+  dockerExecute:
+    dockerPullImage: false
