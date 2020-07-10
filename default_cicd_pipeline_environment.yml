@@ -41,11 +41,11 @@ steps:
     timestampTemplate: "%Y-%m-%dT%H%M%S%Z"
 
   mavenExecute:
-    dockerImage: maven@sha256:c54c4cbf2b0dde00036c48e5680892a91a316b29842112ad0cb1474ff9678e64
+    dockerImage: maven:3.6.3-jdk-8-slim
     dockerOptions: ""
 
   executeNpm:
-    dockerImage: ppiper/node-browsers@sha256:1474483498ff6bbcb0fe350bc01c6aa00a04b3cf4518f44ac5dea300b004b611
+    dockerImage: ppiper/node-browsers:v3
     sapNpmRegistry: "https://npm.sap.com"
 
   executeGradle:
@@ -60,7 +60,7 @@ steps:
       - "application"
 
   createHdiContainer:
-    dockerImage: 'ppiper/cf-cli@sha256:c25dbacb9ab6e912afe0fe926d8f9d949c60adfe55d16778bde5941e6c37be11'
+    dockerImage: ppiper/cf-cli:v2
 
   checkPmd:
     scanModules:
@@ -74,7 +74,7 @@ steps:
     unstableThreshold: 90
 
   cloudFoundryDeploy:
-    dockerImage: 'ppiper/cf-cli@sha256:c25dbacb9ab6e912afe0fe926d8f9d949c60adfe55d16778bde5941e6c37be11'
+    dockerImage: ppiper/cf-cli:v2
     keepOldInstance: true
     stashContent: []
 
